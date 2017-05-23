@@ -1,0 +1,5 @@
+Random room generation - in progress
+Inventory system
+Items/weapons
+Gold
+Monsters/enemies

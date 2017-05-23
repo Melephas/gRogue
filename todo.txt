@@ -1,0 +1,13 @@
+- Add random door generation
+- Add a path making function to connect doors between rooms
+- Add a final goal in the last room
+- Add monsters
+- Get life together
+- Add items and gold
+- Add a menu
+- Assure cross-platform capability
+- Release a preliminary build for Windows and Linux
+- Get playtesters to playtest & give feedback
+- Implement feedback
+- Playtest again
+- Consider public release
