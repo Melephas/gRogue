@@ -38,3 +38,15 @@ int moveEntity(Entity *ent, int x, int y) // Handles all the movement for an ent
 	drawEntity(ent);
 	return 1;
 }
+
+struct stylus *createStylus(int x, int y, char tip)
+{
+    struct stylus *styl = malloc(sizeof(struct stylus));
+    styl->position.x = x;
+    styl->position.y = y;
+    styl->tip = tip;
+}
+
+void moveStylus(struct stylus *styl, int x, int y)
+{
+}
