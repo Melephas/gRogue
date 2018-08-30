@@ -1,7 +1,7 @@
 NAME = game
     
 CC = gcc
-CFLAGS = -lncurses -I$(IDIR) -Wall
+CFLAGS = -lncurses -I$(IDIR) -Wall -O3
 
 IDIR = ./include/
 SRCDIR = ./src/
