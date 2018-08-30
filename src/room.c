@@ -16,6 +16,13 @@ Room *generateRoom(int screenW, int screenH) // Generates a room that fits withi
 	room->position.y = abs(rand()) % (int)((2 * screenH) / 3);
 	room->width = (abs(rand()) % 17) + 8;
 	room->height = (abs(rand()) % 12) + 8;
+
+        room->doors = malloc(sizeof(Position) * 4);
+
+        room->doors[0] = malloc(sizeof(Position));
+        room->doors[0]->x = (rand() % (room->width - 1)) + 1 + room->position.x;
+        room->doors[0]->y = room->position.y;
+
 	return room;
 }
 
@@ -43,7 +50,10 @@ int drawMap(Room **map, int size) // Draws all the rooms in the map provided, th
 				mvprintw(y, x, ".");
 			}
 		}
+
+                mvprintw(map[i]->doors[0]->y, map[i]->doors[0]->x, "#");
 	}
+
 
 	return 0;
 }

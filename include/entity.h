@@ -5,12 +5,12 @@ typedef struct entity
 {
 	Position position;
 	int health;
-	char *symbol;
-	char *floorTile;
+	char symbol;
+	char floorTile;
 } Entity;
 
 int moveEntity(Entity *, int, int);
-Entity *createEntity(int, int, char *);
+Entity *createEntity(int, int, char);
 int drawEntity(Entity *);
 
 #endif

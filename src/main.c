@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 		return 1;
 	
 	// Create player
-	Entity *player = createEntity(map[0]->position.x+1, map[0]->position.y+1, "@");
+	Entity *player = createEntity(map[0]->position.x+1, map[0]->position.y+1, '@');
 	drawEntity(player);
 
 	int ch;
@@ -50,6 +50,7 @@ int setup() // Sets up everything needed to run the game, then returns 1
 	// Ncurses setup
 	initscr();
 	noecho();
+        curs_set(FALSE);
 	refresh();
 	getmaxyx(stdscr, screenH, screenW);
 	if (screenH > 50)

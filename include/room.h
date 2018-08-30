@@ -8,6 +8,7 @@ typedef struct room
 	Position position;
 	int height;
 	int width;
+        Position **doors;
 } Room;
 
 Room *generateRoom(int, int);

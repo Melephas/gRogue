@@ -1,5 +1,7 @@
+NAME = game
+    
 CC = gcc
-CFLAGS = -lncurses -I$(IDIR)
+CFLAGS = -lncurses -I$(IDIR) -Wall
 
 IDIR = ./include/
 SRCDIR = ./src/
@@ -9,6 +11,6 @@ SOURCES = $(SRCDIR)*.c
 all: clean build
 
 build:
-	$(CC) $(SOURCES) $(CFLAGS) -o game
+	$(CC) $(SOURCES) $(CFLAGS) -o $(NAME)
 clean:
-	rm rougelike
+	$(RM) $(NAME)
