@@ -2,10 +2,6 @@
 ### Compiling
 The game can be compiled by simply typing:
 
-`make build`
-
-When recompiling you should instead use the command:
-
 `make`
 
 To remove the executables and build files you can use the following:
