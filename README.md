@@ -1,18 +1,16 @@
-README
-1. Compiliation
-2. Controls
-
-1. Compiliation
+##README
+---
+###Compiling
   The game can be compiled by simply typing:
-	make build
+	`make build`
   
   When recompiling you should instead use the command:
-	make
+	`make`
 
   To remove the executables and build files you can use the following:
- 	make clean
+ 	`make clean`
 
-2. Controls
+###Controls
   W - Move up
   A - Move left
   S - Move down
