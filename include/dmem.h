@@ -6,7 +6,7 @@ struct DMR
     unsigned int count;
     unsigned int size;
     unsigned int growSize;
-    void *objects;
+    struct Object *objects;
 }
 
 struct Object
@@ -15,7 +15,7 @@ struct Object
     void (*freeFunc)(void *object);
 }    
 
-struct DMR *initialiseDMB(unsigned int initialSize, unsigned int growSize);
+struct DMR *initialiseDMR(unsigned int initialSize, unsigned int growSize);
 void addObject(void *object, void (*freeFunction)(void *object));
 void deleteObject(void *object);
 
