@@ -1,20 +1,20 @@
-##README
+## README
 ---
-###Compiling
-  The game can be compiled by simply typing:
-	`make build`
+### Compiling
+The game can be compiled by simply typing:
+`make build`
   
-  When recompiling you should instead use the command:
-	`make`
+When recompiling you should instead use the command:
+`make`
 
-  To remove the executables and build files you can use the following:
- 	`make clean`
+To remove the executables and build files you can use the following:
+`make clean`
 
-###Controls
-  W - Move up
-  A - Move left
-  S - Move down
-  D - Move right
+### Controls
+W - Move up
+A - Move left
+S - Move down
+D - Move right
 
-  R - Re-run the level generation
-  Q - Quit the game
+R - Re-run the level generation
+Q - Quit the game
