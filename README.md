@@ -1,11 +1,9 @@
 ## README
 ### Compiling
-The game can be compiled by simply typing:
-
+The game can be compiled by simply typing:  
 `make`
 
-To remove the executables and build files you can use the following:
-
+To remove the executables and build files you can use the following:  
 `make clean`
 
 ### Controls
