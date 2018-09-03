@@ -29,102 +29,103 @@ void handleIn(char, Entity *);
 
 int main(int argc, char *argv[])
 {
-	if (!setup()) // This is where all the startup happens, including map generation and config loading
-		return 1;
+    if (!setup()) // This is where all the startup happens, including map generation and config loading
+    	return 1;
 	
-	// Create player
-	Entity *player = createEntity(map[0]->position.x+1, map[0]->position.y+1, '@');
-	drawEntity(player);
+    // Create player
+    Entity *player = createEntity(map[0]->position.x+1, map[0]->position.y+1, '@');
+    drawEntity(player);
 
-	int ch;
-	while ((ch = getch()) != 'q') // Currently this is the main game loop
-	{
-		handleIn(ch, player);
-	}
+    int ch;
+    while ((ch = getch()) != 'q') // Currently this is the main game loop
+    {
+    	handleIn(ch, player);
+    }
 
-	return shutdown(); // This is the end of the program
+    return shutdown(); // This is the end of the program
 }
 
 int setup() // Sets up everything needed to run the game, then returns 1
 {
 	// Ncurses setup
-	initscr();
-	noecho();
-        curs_set(FALSE);
-	refresh();
-	getmaxyx(stdscr, screenH, screenW);
-	if (screenH > 50)
-		screenH = 50;
-	// End Ncurses setup
-	// Internal setup
-	loadConfig("config.txt", names, addr, sizeof(names));
+    initscr();
+    noecho();
+    curs_set(FALSE);
+    refresh();
+    getmaxyx(stdscr, screenH, screenW);
+    if (screenH > 50)
+    	screenH = 50;
+    // End Ncurses setup
+    // Internal setup
+    loadConfig("config.txt", names, addr, sizeof(names));
 	
-	srand(time(NULL));
-	srand(rand());
+    srand(time(NULL));
+    srand(rand());
 
-	map = malloc(sizeof(Room) * rooms);
-	int x;
-	for (x = 0; x < rooms; ++x)
-	{
-		map[x] = malloc(sizeof(Room));
-		do
-		{
-			map[x] = generateRoom(screenW, screenH);
-		}
-		while (checkRoomCollision(map[x], map, x));
-	}
-	drawMap(map, rooms);
+    map = malloc(sizeof(Room) * rooms);
+    int x;
+    for (x = 0; x < rooms; ++x)
+    {
+    	map[x] = malloc(sizeof(Room));
+    	do
+    	{
+    	    map[x] = generateRoom(screenW, screenH);
+    	}
+    	while (checkRoomCollision(map[x], map, x));
+    }
+    drawMap(map, rooms);
 
-	// End Internal setup
+    // End Internal setup
 	
-	return 1;
+    return 1;
 }
 
 int shutdown() // Takes care of everything that needs to be done to return the console to the state it was in before running the game
 {
-	endwin();
-	return 100;
+    curs_set(TRUE);
+    endwin();
+    return 100;
 }
 
 void handleIn(char in, Entity *player) // Handles player keyboard input
 {
-	int x;
+    int x;
 
-	switch ((int)in)
-	{
-	case 'w':
-	case 'W':
-		moveEntity(player, player->position.x, player->position.y - 1);
-		break;
-	case 's':
-	case 'S':
-		moveEntity(player, player->position.x, player->position.y + 1);
-		break;
-	case 'a':
-	case 'A':
-		moveEntity(player, player->position.x - 1, player->position.y);
-		break;
-	case 'd':
-	case 'D':
-		moveEntity(player, player->position.x + 1, player->position.y);
-		break;
-	case 'r':
-	case 'R':
-		for (x = 0; x < rooms; ++x)
-		{
-			map[x] = malloc(sizeof(Room));
-			do
-			{
-				map[x] = generateRoom(screenW, screenH);
-			}
-			while (checkRoomCollision(map[x], map, x));
-		}
-		moveEntity(player, map[0]->position.x+1, map[0]->position.y+1);
-		clear();
-		drawMap(map, rooms);
-		drawEntity(player);
-		break;
-	}
+    switch ((int)in)
+    {
+    case 'w':
+    case 'W':
+    	moveEntity(player, player->position.x, player->position.y - 1);
+    	break;
+    case 's':
+    case 'S':
+    	moveEntity(player, player->position.x, player->position.y + 1);
+    	break;
+    case 'a':
+    case 'A':
+    	moveEntity(player, player->position.x - 1, player->position.y);
+    	break;
+    case 'd':
+    case 'D':
+    	moveEntity(player, player->position.x + 1, player->position.y);
+    	break;
+    case 'r':
+    case 'R':
+    	for (x = 0; x < rooms; ++x)
+    	{
+    	    map[x] = malloc(sizeof(Room));
+    	    do
+    	    {
+    	    	map[x] = generateRoom(screenW, screenH);
+    	    }
+            while (checkRoomCollision(map[x], map, x));
+    	}
+    	moveEntity(player, map[0]->position.x+1, map[0]->position.y+1);
+    	clear();
+    	drawMap(map, rooms);
+    	drawEntity(player);
+    	break;
+    }
 }
 
 

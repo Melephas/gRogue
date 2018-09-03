@@ -14,7 +14,7 @@ struct stylus
     Position position;
     char symbol;
     char tip;
-}
+};
 
 int moveEntity(Entity *ent, int x, int y);
 Entity *createEntity(int x, int y, char symbol);

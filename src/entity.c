@@ -42,11 +42,18 @@ int moveEntity(Entity *ent, int x, int y) // Handles all the movement for an ent
 struct stylus *createStylus(int x, int y, char tip)
 {
     struct stylus *styl = malloc(sizeof(struct stylus));
+    styl->symbol = '*';
     styl->position.x = x;
     styl->position.y = y;
     styl->tip = tip;
+
+    return styl;
 }
 
 void moveStylus(struct stylus *styl, int x, int y)
 {
+    mvprintw(styl->position.y, styl->position.x, "%c", styl->tip);
+    styl->position.x = x;
+    styl->position.y = y;
+    mvprintw(y, x, "%c", styl->symbol);
 }
