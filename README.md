@@ -7,14 +7,10 @@ To remove the executables and build files you can use the following:
 `make clean`
 
 ### Controls
-W - Move up
+W - Move up  
+A - Move left  
+S - Move down  
+D - Move right  
 
-A - Move left
-
-S - Move down
-
-D - Move right
-
-R - Re-run the level generation
-
-Q - Quit the game
+R - Re-run the level generation  
+Q - Quit the game  
